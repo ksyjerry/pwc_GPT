@@ -1,24 +1,13 @@
-h1, h2 {
-
-
-color: blue
-
-}/* Write your code here: */
-
-
-
-
-div li{
-
-color:darkgreen;
-  
-
+.outer {
+  font-size: 24px;
 }
 
-li.done {
 
-color:rgb(87, 29, 173);
-
-  
-
+.inner {
+  font-size: 1rem;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
 }
+

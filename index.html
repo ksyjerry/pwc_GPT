@@ -1,36 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Combining CSS Selectors</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-
-<!-- Don't change any of the HTML code! -->
-
-<body>
-
-
-  <h1>To Do List</h1>
-  <h2>Monday</h2>
-  <div class="box">
-    <p class="done">Do these things today!</p>
-    <ul class="list">
-      <li>Wash Clothes</li>
-      <li class="done">Read</li>
-      <li class="done">Maths Questions</li>
-    </ul>
-  </div>
-
-  <ul>
-    <p class="done">Other items</p>
-  </ul>
-  <p>The best preparation for tomorrow is doing your best today.</p>
-
-  <script src="./script.js"></script>
-  
-
-</body>
-
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자맞추기 게임</title>
+  </head>
+  <body>
+    <h1>숫자 맞추기 게임!</h1>
+    <p>1부터 100까지의 숫자 중 하나를 맞춰보세요.</p>
+    <div id="numOfLife"></div>
+    <input type="number" id="guess" />
+    <button id="submit">Go</button>
+    <button id="reset">Reset</button>
+    <div id="result"></div>
+    <script src="./script.js"></script>
+  </body>
 </html>
