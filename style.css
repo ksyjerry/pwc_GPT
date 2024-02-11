@@ -1,0 +1,47 @@
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  background-color: white;
+  height: 100vh;
+}
+
+.task-area {
+    margin-top: 20px;
+  
+    border: 1px solid lightgray;
+  
+  }
+
+.task-tabs {
+  display: flex;
+  border-bottom: lightgray 1px solid;
+  position: relative;
+}
+
+.task-tabs div {
+  padding: 1em;
+}
+
+
+
+#under-line {
+    height: 4px;
+    background-color: brown;
+    width: 70px;
+    left : 0;
+    position: absolute;
+    top: 52px;
+    padding: 0px;
+
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+
+}
