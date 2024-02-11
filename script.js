@@ -22,6 +22,8 @@ function displayTask() {
   resultHTML = resultGenerate();
   taskBoard.innerHTML = resultHTML;
   completeButtonsClick();
+  deleteButtonsClick();
+  
 }
 
 function randomIDGenerate() {
@@ -49,7 +51,7 @@ function resultGenerate() {
             <div class="${taskCompleteClass}">${taskList[i].taskContent}</div>
             <div>
                 <button type="button" class="complete-button" data-id="${taskList[i].id}">check</button>
-                <button type="button">delete</button>
+                <button type="button" class="delete-button" data-id="${taskList[i].id}">delete</button>
             </div>
           </div>`;
   }
@@ -67,6 +69,26 @@ function completeButtonsClick() {
   }
 
 }
+
+function deleteButtonsClick() {
+  const taskBoard = document.getElementById("taskBoard");
+  const deleteButtons = taskBoard.getElementsByClassName("delete-button");
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener("click", function () {
+      deleteTask(this.dataset.id);
+    });
+  }
+}
+
+function deleteTask(id) {
+    for (let i = 0; i < taskList.length; i++) {
+        if (taskList[i].id === id) {
+        taskList.splice(i, 1);
+        displayTask();
+        break;
+        }
+    }
+    }
 
 // function completeButtonsClick() {
 //   const taskBoard = document.getElementById("taskBoard");
