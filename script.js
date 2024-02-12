@@ -1,8 +1,48 @@
 let taskInput = document.getElementById("task-input");
 let addButton = document.getElementById("add-button");
+let tabs = document.querySelectorAll(".task-tabs>div");
+console.log(tabs);
 let taskList = [];
 
 addButton.addEventListener("click", addTask);
+
+for (let i =1; i<tabs.length; i++){
+  tabs[i].addEventListener("click", function(event){
+    filter(event);
+  }
+  )
+}
+
+function filter(event){
+
+  console.log(event.target.id);
+ if (event.target.id === "all"){
+  displayTask(taskList);
+  return;
+ }
+ else if (event.target.id === "notDone"){
+  let notDoneTasks = taskList.filter(function(task){
+    return task.isComplete === false;
+  }
+  )
+
+  displayTask(notDoneTasks);
+  }
+
+  else if (event.target.id === "done"){
+    let doneTasks = taskList.filter(function(task){
+      return task.isComplete === true;
+    }
+    )
+   
+    displayTask(doneTasks);
+  }
+ };
+
+
+
+
+
 
 function addTask() {
   let tasks = {
@@ -13,13 +53,13 @@ function addTask() {
 
   taskList.push(tasks);
   console.log(taskList);
-  displayTask();
+  displayTask(taskList);
 }
 
-function displayTask() {
+function displayTask(taskList) {
   let resultHTML = "";
 
-  resultHTML = resultGenerate();
+  resultHTML = resultGenerate(taskList);
   taskBoard.innerHTML = resultHTML;
   completeButtonsClick();
   deleteButtonsClick();
@@ -34,7 +74,7 @@ function toggleComplete(id) {
   for (let i = 0; i < taskList.length; i++) {
     if (taskList[i].id === id) {
       taskList[i].isComplete = !taskList[i].isComplete;
-      displayTask();
+      displayTask(taskList);
       break;
     }
 
@@ -43,7 +83,7 @@ function toggleComplete(id) {
   
 }
 
-function resultGenerate() {
+function resultGenerate(taskList) {
   let resultHTML = "";
   for (let i = 0; i < taskList.length; i++) {
     const taskCompleteClass = taskList[i].isComplete ? "task-done" : "";
@@ -84,7 +124,7 @@ function deleteTask(id) {
     for (let i = 0; i < taskList.length; i++) {
         if (taskList[i].id === id) {
         taskList.splice(i, 1);
-        displayTask();
+        displayTask(taskList);
         break;
         }
     }
