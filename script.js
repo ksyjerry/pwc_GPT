@@ -65,15 +65,7 @@ function displayTask(taskList) {
   deleteButtonsClick();
 }
 
-function toggleComplete(id) {
-  for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].id === id) {
-      taskList[i].isComplete = !taskList[i].isComplete;
-      filter({ target: { id: activeTab } }); // Call filter instead of displayTask
-      break;
-    }
-  }
-}
+
 
 function resultGenerate(taskList) {
   let resultHTML = "";
@@ -98,6 +90,16 @@ function completeButtonsClick() {
   }
 }
 
+function toggleComplete(id) {
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].id === id) {
+      taskList[i].isComplete = !taskList[i].isComplete;
+      filter({ target: { id: activeTab } }); // Call filter instead of displayTask
+      break;
+    }
+  }
+}
+
 function deleteButtonsClick() {
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].addEventListener("click", function () {
@@ -110,7 +112,8 @@ function deleteTask(id) {
   for (let i = 0; i < taskList.length; i++) {
     if (taskList[i].id === id) {
       taskList.splice(i, 1);
-      displayTask(taskList);
+      filter({ target: { id: activeTab } });
+      // displayTask(taskList);
       break;
     }
   }
