@@ -1,81 +1,3 @@
-// let taskInput = document.getElementById("task-input");
-// let addButton = document.getElementById("add-button");
-// let tabs = document.querySelectorAll(".task-tabs>div");
-// const taskBoard = document.getElementById("taskBoard");
-// const deleteButtons = taskBoard.getElementsByClassName("delete-button");
-// const completeButtons = taskBoard.getElementsByClassName("complete-button");
-
-// console.log(tabs);
-// let taskList = [];
-
-// addButton.addEventListener("click", addTask);
-
-// for (let i = 1; i < tabs.length; i++) {
-//   tabs[i].addEventListener("click", function (event) {
-//     console.log(event.target.id);
-//     filter(event);
-//   });
-// }
-
-// function filter(event) {
-//   console.log(event.target.id);
-//   if (event.target.id === "all") {
-//     displayTask(taskList);
-//     return;
-//   } else if (event.target.id === "notDone") {
-//     let notDoneTasks = taskList.filter(function (task) {
-//       return task.isComplete === false;
-//     });
-
-//     displayTask(notDoneTasks);
-//   } else if (event.target.id === "done") {
-//     let doneTasks = taskList.filter(function (task) {
-//       return task.isComplete === true;
-//     });
-
-//     displayTask(doneTasks);
-//   }
-// }
-
-// function addTask() {
-//   console.log(taskInput.value.trim() !== "");
-//   let tasks = {};
-//   if (taskInput.value.trim() !== "") {
-//     tasks = {
-//       taskContent: taskInput.value,
-//       isComplete: false,
-//       id: randomIDGenerate(),
-//     };
-//     taskList.push(tasks);
-//   }
-
-//   console.log(taskList);
-//   displayTask(taskList);
-// }
-
-// function displayTask(taskList) {
-//   let resultHTML = "";
-
-//   resultHTML = resultGenerate(taskList);
-//   taskBoard.innerHTML = resultHTML;
-//   completeButtonsClick();
-//   deleteButtonsClick();
-// }
-
-function randomIDGenerate() {
-  return "_" + Math.random().toString(36).substr(2, 9);
-}
-
-// function toggleComplete(id) {
-//   for (let i = 0; i < taskList.length; i++) {
-//     if (taskList[i].id === id) {
-//       taskList[i].isComplete = !taskList[i].isComplete;
-//       displayTask(taskList);
-//       break;
-//     }
-//   }
-// }
-
 let taskInput = document.getElementById("task-input");
 let addButton = document.getElementById("add-button");
 let tabs = document.querySelectorAll(".task-tabs>div");
@@ -128,6 +50,11 @@ function addTask() {
 
   filter({ target: { id: activeTab } }); // Call filter instead of displayTask
 }
+
+function randomIDGenerate() {
+  return "_" + Math.random().toString(36).substr(2, 9);
+}
+
 
 function displayTask(taskList) {
   let resultHTML = "";
